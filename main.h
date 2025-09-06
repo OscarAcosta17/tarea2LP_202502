@@ -16,6 +16,4 @@ typedef struct Juego {
     int derrota; // esta es nueva 
 } Juego;
 
-
-
 #endif

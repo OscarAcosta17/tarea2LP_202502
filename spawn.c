@@ -35,7 +35,6 @@ int pick_tipo(struct Juego *j) {
     return tipos[rand() % n];
 }
 
-
 void descuenta(struct Juego *j, int tipo) {
     if      (tipo == 0) j->pool.drone--;
     else if (tipo == 1) j->pool.skater--;
@@ -114,4 +113,3 @@ void spawn_turno(struct Juego *j) {
         }
     }
 }
-

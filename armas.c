@@ -49,8 +49,6 @@ bool arma_normal(struct Juego *juego) {
     return true;
 }
 
-
-
 bool arma_perforador(struct Juego *juego) {
     if (!juego || !juego->t) return false;
 

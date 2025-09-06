@@ -8,7 +8,9 @@ INSTRUCCIONES:
 
     EXTRA: 
         le añadi valgrid al makefile para yo mismo revisar asi que lo dejare por si les sirve, usando el comando "make mem" se puede ver y con "make memv" con modo estricto 
-
+    
+    Los comentarios están en el .h de cada archivo.
+    
 SUPUESTOS:
     - si los aliens no pueden moverse porque su casilla estaba usada, entonces bajan 1 casilla.
     - el movimiento del alien especial es medianamente aleatorio (tiene un set de movimientos y se elige al azar) lo hice así pa hacerlo más dificil
