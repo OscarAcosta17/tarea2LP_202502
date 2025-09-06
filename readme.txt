@@ -1,10 +1,11 @@
 Nombre: Oscar Acosta
 Rol: 202373511-6
 
-
 INSTRUCCIONES:
     - estar en un entorno linux, yo en mi caso desarrollé esta tarea desde windows usando WSL : 6.6.87.2-microsoft-standard-WSL2 y en el compilador g++ : g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
     - Se compila usando: make run 
+
     EXTRA: 
         le añadi valgrid al makefile para yo mismo revisar asi que lo dejare por si les sirve, usando el comando "make mem" se puede ver y con "make memv" con modo estricto 
 
