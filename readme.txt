@@ -17,7 +17,6 @@ SUPUESTOS:
     - el disparar consume 1 turno
     - el HUD no es igual al que se mostro en la ayudantia pero realmente era feo y lo hice mas bonito
     - cuando disparas y fallas se consume un turno igualmente
-    - IMPORTANTE: evitar poner cosas como DDDDDDDDDDDDD/dddddddddddddd o aaaaaaaaaaaaa/AAAAAAAAAAAA ya que hace 1 moviimento por cada D, simplemente limitarse a usar una unica vez el movimiento, no genera leaks pero es un mini bug
 
 Movimiento de los aliens:
 Drone (tipo 0): "D"
