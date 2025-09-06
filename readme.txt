@@ -17,7 +17,7 @@ SUPUESTOS:
     - el disparar consume 1 turno
     - el HUD no es igual al que se mostro en la ayudantia pero realmente era feo y lo hice mas bonito
     - cuando disparas y fallas se consume un turno igualmente
-    -
+    - IMPORTANTE: evitar poner cosas como DDDDDDDDDDDDD/dddddddddddddd o aaaaaaaaaaaaa/AAAAAAAAAAAA ya que hace 1 moviimento por cada D, simplemente limitarse a usar una unica vez el movimiento, no genera leaks pero es un mini bug
 
 Movimiento de los aliens:
 Drone (tipo 0): "D"
@@ -52,7 +52,9 @@ Perforador (id 2):
     -Daño: 1 punto por alien impactado.
     -Munición: limitada a 7 
 
-Especial= ESCOPETA (id 3): 
+Especial= LANZAFUEGOS (id 3): 
+    -basicamente es la lanzafuegos del clash royale :D
+
     -Dispara hacia arriba en la columna en donde esta el jugador
     -Busca el primer alien que encuentre en esa columna.
     -Al impactar, la bala se dispersa en un cono invertido que cubre hasta 2 filas más arriba, de la siguiente forma:
@@ -68,7 +70,7 @@ Especial= ESCOPETA (id 3):
         -Fila siguiente (3 casillas): 1 punto de daño.
         -Fila siguiente (5 casillas): 1 punto de daño.
     -Munición: 3 en modo facil y 2 en modo dificil
-
+    
 BONUS:
 -25% de tener +1 bala perforadora al matar un alien
 -10% de tener +1 bala especuial al matar un alien

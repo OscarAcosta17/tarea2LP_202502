@@ -91,7 +91,7 @@ bool arma_especial(struct Juego *juego) {
         if (cel && cel->alien) { hit_y = y; break; }
     }
     if (hit_y < 0) {
-        printf(">>> [ESCOPETA] Falló: no había alien en la columna <<<\n");
+        printf(">>> [LANZAFUEGOS] Falló: no había alien en la columna <<<\n");
         return true; // consume turno/munición igual
     }
 
@@ -118,7 +118,7 @@ bool arma_especial(struct Juego *juego) {
                     (c->alien->tipo == 0) ? "Drone" :
                     (c->alien->tipo == 1) ? "Skater" : "Especial";
 
-                printf(">>> [ESCOPETA] %s en (%d,%d) recibe %d daño. Vida restante: %d <<<\n",
+                printf(">>> [LANZAFUEGOS] %s en (%d,%d) recibe %d daño. Vida restante: %d <<<\n",
                        tipo, x, y, dmg, vida_rest);
             }
         }

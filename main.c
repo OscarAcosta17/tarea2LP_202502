@@ -23,6 +23,9 @@ int main(void) {
         fprintf(stderr, "Dificultad invalida.\n");
         return 1;
     }
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
     if (opcion == 1) {
         juego.dificultad = 0;
         juego.armas.ammo_especial = 3;
@@ -50,10 +53,11 @@ int main(void) {
     while (true) {
         hud_imprimir(&juego);
         printf("\nAcciones:");
-        printf("\n[a] izq, [d] der, [1-3] disparar, [q] Salir (otra = no hace nada :D )\n> ");
+        printf("\n[a] izq | [d] der | [1] Normal | [2] Perforador | [3] Especial | [q] Salir (otra = no hace nada :D )\n> ");
 
         int ch = getchar(); 
-        while (ch == '\n') ch = getchar();
+        int exceso;
+        while ((exceso = getchar()) != '\n' && exceso != EOF);
 
         if (ch == EOF || ch == 'q' || ch == 'Q') { // Rendirse
             puts("Saliendo...");
@@ -74,7 +78,7 @@ int main(void) {
             resolver_danos(&juego);
             if (juego.derrota == 2) { //Victoria
                 tablero_imprimir(&juego);
-                puts("VICTORIA: eliminaste todos los aliens!");
+                puts("\nVICTORIA: eliminaste todos los aliens!");
                 break;
             }
             juego.turno++;
