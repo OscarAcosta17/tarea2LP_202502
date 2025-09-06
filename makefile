@@ -4,7 +4,7 @@ CFLAGS  = -std=c11 -Wall -Wextra -O2
 DBGFLAGS= -g -O0                  # Para depurar/valgrind
 
 # Archivos
-OBJS    = main.o tablero.o entidades.o spawn.o
+OBJS    = main.o tablero.o entidades.o spawn.o armas.o
 TARGET  = juego
 
 # Valgrind
@@ -25,11 +25,20 @@ debug: CFLAGS := $(filter-out -O2,$(CFLAGS)) $(DBGFLAGS)
 debug: clean $(TARGET)
 
 # Reglas de compilación
-main.o: main.c main.h tablero.h entidades.h spawn.h
+main.o: main.c main.h tablero.h entidades.h spawn.h armas.h
 	$(CC) $(CFLAGS) -c main.c
 
 tablero.o: tablero.c tablero.h main.h
 	$(CC) $(CFLAGS) -c tablero.c
+
+entidades.o: entidades.c entidades.h main.h spawn.h tablero.h
+	$(CC) $(CFLAGS) -c entidades.c
+
+spawn.o: spawn.c spawn.h main.h entidades.h tablero.h
+	$(CC) $(CFLAGS) -c spawn.c
+
+armas.o: armas.c armas.h main.h
+	$(CC) $(CFLAGS) -c armas.c
 
 # Ejecutar normal
 run: $(TARGET)

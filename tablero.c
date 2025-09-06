@@ -23,21 +23,19 @@ Tablero* tablero_crear(int ancho, int alto){
 void tablero_cerrar(Tablero *t) {
     if (!t) return;
 
-    // libera cada Celda* y su Alien*
-    for (int y = 0; y < t->H; ++y) {
+    for (int y = 0; y < t->H; ++y) { // libera cada celda y alien
         for (int x = 0; x < t->W; ++x) {
             Celda *cel = (Celda*) t->celdas[y][x];
             if (cel) {
-                free(cel->alien);   // primero el Alien*
-                free(cel);          // luego la Celda*
+                free(cel->alien);
+                free(cel);
                 t->celdas[y][x] = NULL;
             }
         }
-        free(t->celdas[y]);         // libera la fila (void**)
+        free(t->celdas[y]);
     }
-
-    free(t->celdas);                // libera el arreglo de filas
-    free(t);                        // libera el Tablero
+    free(t->celdas);
+    free(t);
 }
 
 void tablero_imprimir(struct Juego *juego) {
@@ -47,13 +45,11 @@ void tablero_imprimir(struct Juego *juego) {
     if (juego->jugador_x < 0) juego->jugador_x = 0;
     if (juego->jugador_x >= t->W) juego->jugador_x = t->W - 1;
 
-    int ancho_borde = 3 * t->W + 2; // '|' + 3*W + '|'
+    int ancho_borde = 3 * t->W + 2;
 
-    // borde superior
     for (int i = 0; i < ancho_borde; ++i) putchar('=');
     putchar('\n');
 
-    // grilla (aliens si existen)
     for (int y = t->H - 1; y >= 0; --y) {
         for (int x = 0; x < t->W; ++x) {
             Celda *cel = (Celda*) t->celdas[y][x];
@@ -69,7 +65,7 @@ void tablero_imprimir(struct Juego *juego) {
     }
     putchar('\n');
 
-    int caret_pos = 1 + 3 * juego->jugador_x ; // centra bajo la celda
+    int caret_pos = 1 + 3 * juego->jugador_x ; 
     for (int i = 0; i < caret_pos; ++i) putchar(' ');
     putchar('^');
     putchar('\n');
@@ -78,5 +74,11 @@ void tablero_imprimir(struct Juego *juego) {
 }
 
 void hud_imprimir(struct Juego *j) {
-    printf("Turno: %d | Vivos: %d | Jugador x=%d\n", j->turno, j->vivos, j->jugador_x);
+    printf("Turno: %d | Aliens vivos: %d/%d\n", j->turno, j->vivos, j->pool.vivos_tope);
+
+    printf("Inventario restantes → Drone: %d | Skater: %d | Especial: %d\n",j->pool.drone, j->pool.skater, j->pool.especial);
+
+    printf("Munición → Normal: ∞ | Perforador: %d | Especial: %d\n",j->armas.ammo_perforador, j->armas.ammo_especial);
+
+    printf("Jugador en columna: %d\n", j->jugador_x);
 }
